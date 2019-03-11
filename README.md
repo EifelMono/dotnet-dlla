@@ -1,4 +1,10 @@
-﻿# dotnet-dlla
+# dotnet-dlla
+ 
+ 
+[![NuGet][main-nuget-badge]][main-nuget]
+
+[main-nuget]: https://www.nuget.org/packages/dotnet-dlla/
+[main-nuget-badge]: https://img.shields.io/nuget/v/dotnet-dlla.svg?style=flat-square&label=nuget
 
 
 dotnet-dlla list the custom attribues from a dll
