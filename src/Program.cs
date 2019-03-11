@@ -1,4 +1,5 @@
 ﻿#define Test
+using EifelMono.Fluent;
 using Mono.Cecil;
 using System;
 using System.IO;
@@ -12,11 +13,10 @@ namespace dotnet_dlla
     {
         static void Main(string[] args)
         {
-#if Test
+#if DEBUG
             args = new string[] { typeof(Program).Assembly.Location};
 #endif
-            var version = typeof(Program).Assembly.GetCustomAttributes<AssemblyInformationalVersionAttribute>().FirstOrDefault()?.InformationalVersion ?? "";
-            Console.WriteLine($"dlla(ttributs) version {version}");
+            Console.WriteLine($"dlla(ttributs) version {fluent.App.Version}");
             if (args.Length == 0)
             {
                 Console.WriteLine("Add a dll file to get attributes about this file");
@@ -36,7 +36,8 @@ namespace dotnet_dlla
                 if (a.UseFull && a.HasValue)
                     Console.WriteLine($"{a.ShortName} = {a.Value}");
             }
-#if Test
+#if DEBUG
+            Console.WriteLine("...");
             Console.ReadLine();
 #endif
         }

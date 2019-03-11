@@ -9,7 +9,45 @@
     <PackAsTool>true</PackAsTool>
   </PropertyGroup>
 
-   <ItemGroup>
+  <PropertyGroup>
+    <Title>dotnet-dlla</Title>
+    <Authors>eifelmono@klapperich.de</Authors>
+    <Product>dotnet-dlla</Product>
+    <Copyright>Use it or lose it!</Copyright>
+    <Owners>eifelmono</Owners>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>
+      dotnet-dlla list the custom attribues from dll
+
+      Install
+      dotnet tool install dotnet-dlla -g
+      or Update
+      dotnet tool update dotnet-dlla -g
+
+      Uninstall
+      dotnet tool uninstall dotnet-dlla -g
+    </Description>
+    <ProjectUrl>https://github.com/EifelMono/dotnet-dlla</ProjectUrl>
+    <PackageLicenseUrl>https://github.com/EifelMono/dotnet-dlla/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/eifelmono/dotnet-dlla</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/eifelmono/dotnet-dlla.git/</RepositoryUrl>
+    <PackageReleaseNotes>See $(PackageProjectUrl)/blob/master/README.md</PackageReleaseNotes>
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EifelMono.Fluent" Version="0.0.2" />
     <PackageReference Include="Mono.Cecil" Version="0.10.3" />
   </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="EifelMono.Fluent.Attributes.BuildTimeStampUtcAttribute">
+      <_Parameter1>$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="EifelMono.Fluent.Attributes.BuildMachineNameAttribute">
+      <_Parameter1>$([System.Environment]::MachineName)</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>
