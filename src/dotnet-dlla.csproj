@@ -29,7 +29,7 @@
       dotnet tool uninstall dotnet-dlla -g
     </Description>
     <ProjectUrl>https://github.com/EifelMono/dotnet-dlla</ProjectUrl>
-    <PackageLicenseUrl>https://github.com/EifelMono/dotnet-dlla/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/eifelmono/dotnet-dlla</PackageProjectUrl>
     <RepositoryUrl>https://github.com/eifelmono/dotnet-dlla.git/</RepositoryUrl>
     <PackageReleaseNotes>See $(PackageProjectUrl)/blob/master/README.md</PackageReleaseNotes>
@@ -48,6 +48,13 @@
     <AssemblyAttribute Include="EifelMono.Fluent.Attributes.BuildMachineNameAttribute">
       <_Parameter1>$([System.Environment]::MachineName)</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

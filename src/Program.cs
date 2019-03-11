@@ -1,5 +1,6 @@
 ﻿#define Test
 using EifelMono.Fluent;
+using EifelMono.Fluent.IO;
 using Mono.Cecil;
 using System;
 using System.IO;
@@ -23,10 +24,16 @@ namespace dotnet_dlla
                 return;
             }
 
-            var fileName = Path.GetFullPath(args[0]);
-            var assembly = AssemblyDefinition.ReadAssembly(fileName);
+            var dllaFile = new FilePath(args[0]);
+            if (!dllaFile.Exists)
+            {
+                Console.WriteLine($"{dllaFile.FileName} does not exist");
+                Console.WriteLine($"{dllaFile} does not exist");
+                return;
+            }
+            var assembly = AssemblyDefinition.ReadAssembly(dllaFile);
             Console.WriteLine();
-            Console.WriteLine(fileName);
+            Console.WriteLine(dllaFile);
             Console.WriteLine(assembly.FullName);
             Console.WriteLine();
 
