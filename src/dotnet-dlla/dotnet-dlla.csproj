@@ -18,7 +18,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>
-      dotnet-dlla list the custom attribues from dll
+      dotnet-dlla list the custom attribues from a dll
 
       Install
       dotnet tool install dotnet-dlla -g
