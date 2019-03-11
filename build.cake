@@ -11,8 +11,11 @@ bool isWindows = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform 
 
 string nuGetOrg = "https://api.nuget.org/v3/index.json";
 
+
+
 // Name of the csproj 
 string csprojName;
+string csproj;
 
 // Directory of the package output!!
 string nupkgDirectory = "nupkg";
@@ -27,7 +30,7 @@ void DotNetRun (string argument) {
 
 // pre Tasks 
 Setup (ctx => {
-    var csproj = System.IO.Directory.GetFiles (".", "*.csproj").FirstOrDefault ();
+    csproj = System.IO.Directory.GetFiles ("./src", "*.csproj").FirstOrDefault ();
     if (string.IsNullOrEmpty (csproj))
         throw new Exception ($"No csproj file found in this folder {System.IO.Directory.GetCurrentDirectory()}");
     csprojName = System.IO.Path.GetFileNameWithoutExtension (csproj);
@@ -38,18 +41,18 @@ Teardown (ctx => { });
 // Tasks
 Task ("Restore")
     .Does (() => {
-        DotNetRun ("restore");
+        DotNetRun ($"restore {csproj}");
     });
 
 Task ("Pack")
     .Does (() => {
         CleanDirectory (nupkgDirectory);
-        DotNetRun ($"pack -c release -o {nupkgDirectory}");
+        DotNetRun ($"pack {csproj} -c release -o {nupkgDirectory}");
     });
 
 Task ("Build")
     .Does (() => {
-        DotNetRun ($"build");
+        DotNetRun ($"build {csproj}");
     });
 
 Task ("UnInstall")
