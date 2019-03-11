@@ -27,7 +27,18 @@ namespace dotnet_dlla
             }
         }
 
-        public bool HasValue => Value != null;
+        public bool HasValue
+        {
+            get
+            {
+
+                if (Value is null)
+                    return false;
+                if (Value is string str && string.IsNullOrEmpty(str))
+                    return false;
+                return true;
+            }
+        }
         public object Value { get; set; } = null;
 
         public string Name { get; set; }
@@ -35,8 +46,6 @@ namespace dotnet_dlla
 
         public static List<string> NotUseFull = new List<string>
         {
-            "CompilationRelaxations",
-            "Debuggable"
         };
         public bool UseFull => !NotUseFull.Contains(ShortName);
     }
