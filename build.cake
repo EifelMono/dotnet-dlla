@@ -30,7 +30,7 @@ void DotNetRun (string argument) {
 
 // pre Tasks 
 Setup (ctx => {
-    csproj = System.IO.Directory.GetFiles ("./src", "*.csproj").FirstOrDefault ();
+    csproj = GetFiles("./src/**/*.csproj").FirstOrDefault().FullPath;
     if (string.IsNullOrEmpty (csproj))
         throw new Exception ($"No csproj file found in this folder {System.IO.Directory.GetCurrentDirectory()}");
     csprojName = System.IO.Path.GetFileNameWithoutExtension (csproj);
