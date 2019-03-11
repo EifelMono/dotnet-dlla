@@ -15,10 +15,10 @@ dotnet dlla .\src\bin\Debug\netcoreapp2.1\dotnet-dlla.dll
 ```
 
 ```
-dlla(ttributs) version 0.0.2
+dlla(ttributs) version 1.0.0
 
 C:\Dev\github\dotnet-dlla\src\bin\Debug\netcoreapp2.1\dotnet-dlla.dll
-dotnet-dlla, Version=0.0.2.0, Culture=neutral, PublicKeyToken=null
+dotnet-dlla, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 TargetFramework = .NETCoreApp,Version=v2.1
 BuildTimeStampUtc = 20190311173644
